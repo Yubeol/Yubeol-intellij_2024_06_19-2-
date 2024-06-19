@@ -1,0 +1,38 @@
+package org.example;
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr = new int[10];
+
+        Article[] articles = new Article[10];
+
+        Article article1 = new Article();
+//        lastId++; //lastid를 증강시키고
+//        article1.id = lastId; // id1에 lastid를 저장
+        System.out.println(article1.id);
+
+        Article article2 = new Article();
+//        lastId++;
+//        article2.id = lastId;
+        System.out.println(article2.id);
+
+    }
+}
+class Article{
+    static int lastId;
+
+    int id;
+    String regDate;
+
+    static{
+        lastId = 0;
+    }
+    Article(){
+        this(lastId + 1, "2024-12-12 12:12:12");// 연쇄 생성자 호출
+        lastId++; //다음 글을 써도 자동증강을 하기 위함
+    }
+    Article(int id, String regDate){
+        this.id = id; //new 인스턴스에 값을 채움
+        this.regDate = regDate;
+    }
+}
